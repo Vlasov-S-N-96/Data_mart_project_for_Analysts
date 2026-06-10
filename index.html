@@ -3,100 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Витрина данных для аналитиков | Data Engineering Project</title>
+    <title>Власов Сергей — Витрина данных для аналитиков | Data Engineering Project</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-<body>
-<div class="container">
-    <header class="hero">
-        <h1>📊 Витрина данных для аналитиков</h1>
-        <div class="sub">Агрегированные метрики по товарам, категориям, брендам на маркетплейсе. Демонстрация совместной работы DWH (Greenplum), Data Lake (Spark) и оркестрации (Airflow).</div>
-    </header>
+<body class="body_style">
+    <div class="conteiner-size">
+        <!-- ВЕРХНИЙ БЛОК -->
+        <div class="header-container">
+            <div class="photo-block">
+                <img src="https://via.placeholder.com/100x100/1e4663/ffffff?text=SV" alt="Фото профиля" class="avatar">
+                <p class="name">Власов Сергей</p>
+            </div>
+            <div class="title-block">
+                <h1>Витрина данных для аналитиков</h1>
+            </div>
+            <div class="burger-menu">
+                <button class="burger-btn" id="burgerBtn" aria-label="Меню">☰ Меню</button>
+            </div>
+        </div>
 
-    <div class="burger-nav">
-        <button class="burger-btn" id="burgerBtn">Меню</button>
-        <nav class="toc" id="tocMenu">
-            <a href="#goal">🎯 Цель</a>
-            <a href="#stages">⚙️ Этапы</a>
-            <a href="#tech">🧰 Технологии</a>
-            <a href="#docs">📋 Документы</a>
-            <a href="#fields">📊 Поля данных</a>
-            <a href="#spark-job">🔥 Spark Job</a>
-            <a href="#airflow">🌀 Airflow DAG</a>
-            <a href="#sql">🗄️ SQL скрипты</a>
-            <a href="#results">📈 Результат</a>
+        <div class="divider"></div>
+
+        <!-- ДЕСКТОПНЫЕ КНОПКИ -->
+        <nav class="nav-buttons">
+            <a href="#goal" class="nav-btn">Цель</a>
+            <a href="#stages" class="nav-btn">Этапы</a>
+            <a href="#tech" class="nav-btn">Технологии</a>
+            <a href="#docs" class="nav-btn">Документы</a>
+            <a href="#fields" class="nav-btn">Поля данных</a>
+            <a href="#spark-job" class="nav-btn">Spark Job</a>
+            <a href="#airflow" class="nav-btn">Airflow DAG</a>
+            <a href="#sql" class="nav-btn">SQL скрипты</a>
+            <a href="#results" class="nav-btn">Результат</a>
         </nav>
-    </div>
 
-    <main>
-        <section id="goal" class="section-card">
-            <h2>🎯 Цель проекта</h2>
-            <p>Предоставить аналитикам агрегированные метрики по карточкам товаров, популярным категориям и прочим параметрам на маркетплейсе. Демонстрация совместной работы <strong>DWH (Greenplum)</strong>, <strong>Data Lake (Spark)</strong> и <strong>Data Orchestrator (Airflow)</strong>.</p>
-            <div class="doc-item">
-                <span class="doc-icon">🧩</span>
-                <span class="doc-text"><strong>Конечная цель витрины:</strong> создание инструментов для упрощения аналитики данных по товарам.</span>
-            </div>
-        </section>
+        <!-- МОБИЛЬНОЕ МЕНЮ -->
+        <div class="menu-overlay" id="menuOverlay"></div>
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="#goal" class="nav-btn">Цель</a>
+            <a href="#stages" class="nav-btn">Этапы</a>
+            <a href="#tech" class="nav-btn">Технологии</a>
+            <a href="#docs" class="nav-btn">Документы</a>
+            <a href="#fields" class="nav-btn">Поля данных</a>
+            <a href="#spark-job" class="nav-btn">Spark Job</a>
+            <a href="#airflow" class="nav-btn">Airflow DAG</a>
+            <a href="#sql" class="nav-btn">SQL скрипты</a>
+            <a href="#results" class="nav-btn">Результат</a>
+        </nav>
 
-        <section id="stages" class="section-card">
-            <h2>⚙️ Этапы работы</h2>
-            <div class="stage-group collapsed"><div class="stage-header"><span class="stage-icon">🔥</span><h3>Data Lake (Spark)</h3><button class="toggle-btn">▼</button></div><div class="stage-content"><div class="docs-grid"><div class="doc-item"><span class="doc-icon">📖</span><span class="doc-text">Чтение исходных данных в формате Parquet из S3 бакета <code>startde-raw</code> (VK.Cloud).</span></div><div class="doc-item"><span class="doc-icon">⚡</span><span class="doc-text">Выполнение преобразований и агрегаций данных с использованием PySpark.</span></div><div class="doc-item"><span class="doc-icon">💾</span><span class="doc-text">Сохранение агрегированных данных в промежуточный Parquet формат для последующей загрузки в DWH.</span></div></div></div></div>
-            <div class="stage-group collapsed"><div class="stage-header"><span class="stage-icon">🌀</span><h3>Data Orchestration (Airflow)</h3><button class="toggle-btn">▼</button></div><div class="stage-content"><div class="docs-grid"><div class="doc-item"><span class="doc-icon">📐</span><span class="doc-text">Определение DAG (Directed Acyclic Graph) в Airflow для оркестрации задач.</span></div><div class="doc-item"><span class="doc-icon">🚀</span><span class="doc-text">Запуск Spark-приложения для обработки данных.</span></div><div class="doc-item"><span class="doc-icon">🗄️</span><span class="doc-text">Выполнение SQL-запросов для создания витрины данных в Greenplum.</span></div></div></div></div>
-            <div class="stage-group collapsed"><div class="stage-header"><span class="stage-icon">🐘</span><h3>Data Warehouse (Greenplum)</h3><button class="toggle-btn">▼</button></div><div class="stage-content"><div class="docs-grid"><div class="doc-item"><span class="doc-icon">📋</span><span class="doc-text">Создание таблиц витрины данных в Greenplum.</span></div><div class="doc-item"><span class="doc-icon">📤</span><span class="doc-text">Загрузка агрегированных данных из промежуточного Parquet формата.</span></div><div class="doc-item"><span class="doc-icon">📊</span><span class="doc-text">Предоставление аналитикам доступа к витрине данных для выполнения запросов и построения отчетов.</span></div></div></div></div>
-            <div class="stage-group collapsed"><div class="stage-header"><span class="stage-icon">⚙️</span><h3>Настройка окружения</h3><button class="toggle-btn">▼</button></div><div class="stage-content"><div class="docs-grid docs-grid-small"><div class="doc-item"><span class="doc-icon">🌀</span><span class="doc-text">Apache Airflow</span></div><div class="doc-item"><span class="doc-icon">🔥</span><span class="doc-text">Apache Spark</span></div><div class="doc-item"><span class="doc-icon">🐘</span><span class="doc-text">Greenplum</span></div><div class="doc-item"><span class="doc-icon">🐍</span><span class="doc-text">Python + Pandas + PySpark</span></div><div class="doc-item"><span class="doc-icon">☁️</span><span class="doc-text">Подключение к S3 (VK.Cloud) и Greenplum</span></div></div></div></div>
-            <div class="stage-group collapsed"><div class="stage-header"><span class="stage-icon">⚡</span><h3>Разработка Spark Job</h3><button class="toggle-btn">▼</button></div><div class="stage-content"><div class="docs-grid"><div class="doc-item"><span class="doc-icon">📖</span><span class="doc-text">Чтение данных о товарах из S3 бакета <code>startde-raw/raw_items</code> в формате Parquet.</span></div><div class="doc-item"><span class="doc-icon">📐</span><span class="doc-text">Обогащение данных: расчёт агрегатов</span></div></div><div class="docs-grid docs-grid-small" style="margin-top: 0.5rem; margin-left: 2rem;"><div class="doc-item"><span class="doc-icon">📊</span><span class="doc-text"><code>returned_items_count</code> – количество товаров, на которое оформлен возврат</span></div><div class="doc-item"><span class="doc-icon">💰</span><span class="doc-text"><code>potential_revenue</code> – потенциальный доход от остатков товаров</span></div><div class="doc-item"><span class="doc-icon">💵</span><span class="doc-text"><code>total_revenue</code> – доход от выполненных заказов с учётом возвратов</span></div><div class="doc-item"><span class="doc-icon">📈</span><span class="doc-text"><code>avg_daily_sales</code> – среднее количество продаж с момента запуска</span></div><div class="doc-item"><span class="doc-icon">⏱️</span><span class="doc-text"><code>days_to_sold</code> – дней для продажи всех остатков товара</span></div><div class="doc-item"><span class="doc-icon">🏆</span><span class="doc-text"><code>item_rate_percent</code> – относительный ранг рейтинга товара</span></div></div><div class="docs-grid"><div class="doc-item"><span class="doc-icon">💾</span><span class="doc-text">Сохранение результата в формате Parquet в S3 <code>startde-project/{USER_LOGIN}/seller_items</code>.</span></div></div></div></div>
-            <div class="stage-group collapsed"><div class="stage-header"><span class="stage-icon">🌀</span><h3>Разработка Airflow DAG</h3><button class="toggle-btn">▼</button></div><div class="stage-content"><div class="docs-grid"><div class="doc-item"><span class="doc-icon">🚀</span><span class="doc-text">Запуск Spark Job (<code>SparkKubernetesOperator</code>)</span></div><div class="doc-item"><span class="doc-icon">🗄️</span><span class="doc-text">Создание внешней таблицы <code>seller_items</code> в Greenplum (<code>SQLExecuteQueryOperator</code>, Greenplum PXF)</span></div><div class="doc-item"><span class="doc-icon">👁️</span><span class="doc-text">Создание View <code>unreliable_sellers_view</code> (список ненадёжных продавцов)</span></div><div class="doc-item"><span class="doc-icon">🏷️</span><span class="doc-text">Создание View <code>item_brands_view</code> (отчёт по брендам)</span></div><div class="doc-item"><span class="doc-icon">🔗</span><span class="doc-text">Настройка зависимостей, <code>schedule_interval=None</code> (ручной запуск)</span></div><div class="doc-item"><span class="doc-icon">⚙️</span><span class="doc-text">Каждая Spark задача — отдельная таска, параллельное выполнение тасок</span></div><div class="doc-item"><span class="doc-icon">🏷️</span><span class="doc-text">Идентичные названия тасок и отчётов</span></div><div class="doc-item"><span class="doc-icon">🆔</span><span class="doc-text">Формат <code>dag_id: startde-project-&lt;student_id&gt;-dag</code></span></div><div class="doc-item"><span class="doc-icon">🔌</span><span class="doc-text">Используются соединения <code>kubernetes_karpov</code> и <code>greenplume_karpov</code></span></div><div class="doc-item"><span class="doc-icon">♻️</span><span class="doc-text">Обеспечение идемпотентности (использование <code>IF NOT EXISTS</code>)</span></div></div></div></div>
-            <div class="stage-group collapsed"><div class="stage-header"><span class="stage-icon">📝</span><h3>Разработка SQL-скриптов для Greenplum</h3><button class="toggle-btn">▼</button></div><div class="stage-content"><div class="docs-grid"><div class="doc-item"><span class="doc-icon">📋</span><span class="doc-text">Создание внешней таблицы <code>seller_items</code> на основе данных в S3</span></div><div class="doc-item"><span class="doc-icon">👁️</span><span class="doc-text">Создание View <code>unreliable_sellers_view</code> (на основе таблицы <code>seller_items</code>)</span></div><div class="doc-item"><span class="doc-icon">🏷️</span><span class="doc-text">Создание View <code>item_brands_view</code> (на основе таблицы <code>seller_items</code>)</span></div></div></div></div>
-            <div class="stage-group collapsed"><div class="stage-header"><span class="stage-icon">✅</span><h3>Тестирование и проверка</h3><button class="toggle-btn">▼</button></div><div class="stage-content"><div class="docs-grid"><div class="doc-item"><span class="doc-icon">✔️</span><span class="doc-text">Проверка успешного выполнения Airflow DAG</span></div><div class="doc-item"><span class="doc-icon">✔️</span><span class="doc-text">Проверка создания таблиц и View в Greenplum</span></div><div class="doc-item"><span class="doc-icon">✔️</span><span class="doc-text">Проверка целостности и корректности данных</span></div></div></div></div>
-        </section>
+        <!-- ОСНОВНОЙ КОНТЕНТ -->
+        <main class="content_section">
+            <section id="goal">
+                <h2 class="subheadings_info">Цель проекта</h2>
+                <p>Предоставить аналитикам агрегированные метрики по карточкам товаров, популярным категориям и прочим параметрам на маркетплейсе. Демонстрация совместной работы <strong>DWH (Greenplum)</strong>, <strong>Data Lake (Spark)</strong> и <strong>Data Orchestrator (Airflow)</strong>.</p>
+                <div class="info-card">
+                    <span class="info-icon"></span>
+                    <span class="info-text"><strong>Конечная цель витрины:</strong> создание инструментов для упрощения аналитики данных по товарам.</span>
+                </div>
+            </section>
 
-        <section id="tech" class="section-card">
-            <h2>🧰 Технологии</h2>
-            <div class="docs-grid docs-grid-small">
-                <div class="doc-item"><span class="doc-icon">🐍</span><span class="doc-text">Python</span></div>
-                <div class="doc-item"><span class="doc-icon">📦</span><span class="doc-text">Pandas</span></div>
-                <div class="doc-item"><span class="doc-icon">⚡</span><span class="doc-text">PySpark</span></div>
-                <div class="doc-item"><span class="doc-icon">🗄️</span><span class="doc-text">SQL</span></div>
-                <div class="doc-item"><span class="doc-icon">🔥</span><span class="doc-text">Apache Spark</span></div>
-                <div class="doc-item"><span class="doc-icon">🌀</span><span class="doc-text">Apache Airflow</span></div>
-                <div class="doc-item"><span class="doc-icon">🐘</span><span class="doc-text">Greenplum</span></div>
-                <div class="doc-item"><span class="doc-icon">☁️</span><span class="doc-text">AWS S3 (VK.Cloud)</span></div>
-                <div class="doc-item"><span class="doc-icon">🐙</span><span class="doc-text">Git/GitHub</span></div>
-            </div>
-        </section>
+            <section id="stages">
+                <h2 class="subheadings_info">Этапы работы</h2>
+                
+                <div class="stage-group">
+                    <div class="stage-header">
+                        <h3>Data Lake (Spark)</h3>
+                        <button class="toggle-btn">▼</button>
+                    </div>
+                    <div class="stage-content">
+                        <div class="docs-grid">
+                            <div class="doc-item"><span class="doc-text">Чтение исходных данных в формате Parquet из S3 бакета <code>startde-raw</code> (VK.Cloud).</span></div>
+                            <div class="doc-item"><span class="doc-text">Выполнение преобразований и агрегаций данных с использованием PySpark.</span></div>
+                            <div class="doc-item"><span class="doc-text">Сохранение агрегированных данных в промежуточный Parquet формат для последующей загрузки в DWH.</span></div>
+                        </div>
+                    </div>
+                </div>
 
-        <section id="fields" class="section-card">
-            <h2>📋 Описание полей исходных данных</h2>
-            <div class="table-wrapper">
-                <table class="data-table">
-                    <thead><tr><th>Поле</th><th>Тип</th><th>Описание</th></tr></thead>
-                    <tbody>
-                        <tr><td><code>sku_id</code></td><td><code>bigint</code></td><td>Уникальный идентификатор товара (SKU)</td></tr>
-                        <tr><td><code>title</code></td><td><code>string</code></td><td>Название товара</td></tr>
-                        <tr><td><code>category</code></td><td><code>string</code></td><td>Категория товара</td></tr>
-                        <tr><td><code>brand</code></td><td><code>string</code></td><td>Бренд</td></tr>
-                        <tr><td><code>seller</code></td><td><code>string</code></td><td>Продавец</td></tr>
-                        <tr><td><code>group_type</code></td><td><code>string</code></td><td>Группа товара</td></tr>
-                        <tr><td><code>country</code></td><td><code>string</code></td><td>Страна производства</td></tr>
-                        <tr><td><code>availability_items_count</code></td><td><code>bigint</code></td><td>Количество в наличии</td></tr>
-                        <tr><td><code>ordered_items_count</code></td><td><code>bigint</code></td><td>Заказано единиц</td></tr>
-                        <tr><td><code>warehouses_count</code></td><td><code>bigint</code></td><td>Количество складов</td></tr>
-                        <tr><td><code>item_price</code></td><td><code>bigint</code></td><td>Текущая цена</td></tr>
-                        <tr><td><code>goods_sold_count</code></td><td><code>bigint</code></td><td>Продано успешно</td></tr>
-                        <tr><td><code>item_rate</code></td><td><code>double</code></td><td>Рейтинг товара</td></tr>
-                        <tr><td><code>days_on_sell</code></td><td><code>bigint</code></td><td>Дней на платформе</td></tr>
-                        <tr><td><code>avg_percent_to_sold</code></td><td><code>bigint</code></td><td>Средний процент выкупа</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
+                <div class="stage-group">
+                    <div class="stage-header">
+                        <h3>Data Orchestration (Airflow)</h3>
+                        <button class="toggle-btn">▼</button>
+                    </div>
+                    <div class="stage-content">
+                        <div class="docs-grid">
+                            <div class="doc-item"><span class="doc-text">Определение DAG (Directed Acyclic Graph) в Airflow для оркестрации задач.</span></div>
+                            <div class="doc-item"><span class="doc-text">Запуск Spark-приложения для обработки данных.</span></div>
+                            <div class="doc-item"><span class="doc-text">Выполнение SQL-запросов для создания витрины данных в Greenplum.</span></div>
+                        </div>
+                    </div>
+                </div>
 
-        <!-- Секция Spark Job с правильным слайдером -->
-        <section id="spark-job" class="section-card">
-            <h2>🔥 Разработка Spark Job</h2>
-            <p>Чтение из S3, вычисление метрик: <code>returned_items_count</code>, <code>potential_revenue</code>, <code>total_revenue</code>, <code>avg_daily_sales</code>, <code>days_to_sold</code>, <code>item_rate_percent</code>.</p>
-            <pre><code># Фрагмент PySpark: агрегации и оконные функции
+                <div class="stage-group">
+                    <div class="stage-header">
+                        <h3>Data Warehouse (Greenplum)</h3>
+                        <button class="toggle-btn">▼</button>
+                    </div>
+                    <div class="stage-content">
+                        <div class="docs-grid">
+                            <div class="doc-item"><span class="doc-text">Создание таблиц витрины данных в Greenplum.</span></div>
+                            <div class="doc-item"><span class="doc-text">Загрузка агрегированных данных из промежуточного Parquet формата.</span></div>
+                            <div class="doc-item"><span class="doc-text">Предоставление аналитикам доступа к витрине данных для выполнения запросов и построения отчетов.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stage-group">
+                    <div class="stage-header">
+                        <h3>Настройка окружения</h3>
+                        <button class="toggle-btn">▼</button>
+                    </div>
+                    <div class="stage-content">
+                        <div class="tech-grid">
+                            <div class="tech-badge">Apache Airflow</div>
+                            <div class="tech-badge">Apache Spark</div>
+                            <div class="tech-badge">Greenplum</div>
+                            <div class="tech-badge">Python + PySpark</div>
+                            <div class="tech-badge">S3 (VK.Cloud)</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="tech">
+                <h2 class="subheadings_info">Технологии</h2>
+                <div class="tech-grid">
+                    <div class="tech-badge">Python</div>
+                    <div class="tech-badge">PySpark</div>
+                    <div class="tech-badge">SQL</div>
+                    <div class="tech-badge">Apache Spark</div>
+                    <div class="tech-badge">Apache Airflow</div>
+                    <div class="tech-badge">Greenplum</div>
+                    <div class="tech-badge">AWS S3</div>
+                    <div class="tech-badge">Git/GitHub</div>
+                </div>
+            </section>
+
+            <section id="docs">
+                <h2 class="subheadings_info">Файлы проекта (GitHub)</h2>
+                <div class="docs-grid">
+                    <a href="https://github.com/Vlasov-S-N-96/project/tree/main/startde-project" target="_blank" class="doc-item">
+                        <span class="doc-icon">📁</span>
+                        <span class="doc-text"><strong>startde-project</strong> – корневая папка проекта</span>
+                    </a>
+                    <a href="https://github.com/Vlasov-S-N-96/project/blob/main/startde-project/de-project/sergej-vlasov-tnb4478/items-spark-job.py" target="_blank" class="doc-item">
+                        <span class="doc-icon">📄</span>
+                        <span class="doc-text"><strong>items-spark-job.py</strong> – основной Spark job</span>
+                    </a>
+                    <a href="https://github.com/Vlasov-S-N-96/project/blob/main/de-project/sergej-vlasov-tnb4478/items_spark_submit.yaml" target="_blank" class="doc-item">
+                        <span class="doc-icon">📄</span>
+                        <span class="doc-text"><strong>items_spark_submit.yaml</strong> – конфигурация Spark</span>
+                    </a>
+                    <a href="https://github.com/Vlasov-S-N-96/project/blob/main/de-project/sergej-vlasov-tnb4478/startde-project-sergej-vlasov-tnb4478-dag.py" target="_blank" class="doc-item">
+                        <span class="doc-icon">📄</span>
+                        <span class="doc-text"><strong>startde-project-sergej-vlasov-tnb4478-dag.py</strong> – DAG файл</span>
+                    </a>
+                </div>
+            </section>
+
+            <br></br>
+            
+            <section id="fields">
+                <h2 class="subheadings_info">Описание полей исходных данных</h2>
+                <div class="table-wrapper">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Поле</th>
+                                <th>Тип</th>
+                                <th>Описание</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><code>sku_id</code></td><td><code>bigint</code></td><td>Уникальный идентификатор товара (SKU)</td></tr>
+                            <tr><td><code>title</code></td><td><code>string</code></td><td>Название товара</td></tr>
+                            <tr><td><code>category</code></td><td><code>string</code></td><td>Категория товара</td></tr>
+                            <tr><td><code>brand</code></td><td><code>string</code></td><td>Бренд</td></tr>
+                            <tr><td><code>seller</code></td><td><code>string</code></td><td>Продавец</td></tr>
+                            <tr><td><code>availability_items_count</code></td><td><code>bigint</code></td><td>Количество в наличии</td></tr>
+                            <tr><td><code>ordered_items_count</code></td><td><code>bigint</code></td><td>Заказано единиц</td></tr>
+                            <tr><td><code>item_price</code></td><td><code>bigint</code></td><td>Текущая цена</td></tr>
+                            <tr><td><code>goods_sold_count</code></td><td><code>bigint</code></td><td>Продано успешно</td></tr>
+                            <tr><td><code>item_rate</code></td><td><code>double</code></td><td>Рейтинг товара</td></tr>
+                            <tr><td><code>days_on_sell</code></td><td><code>bigint</code></td><td>Дней на платформе</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="spark-job">
+                <h2 class="subheadings_info">Разработка Spark Job</h2>
+                <p>Вычисление метрик: <span class="highlight-metric">returned_items_count</span>, <span class="highlight-metric">potential_revenue</span>, <span class="highlight-metric">total_revenue</span>, <span class="highlight-metric">avg_daily_sales</span>, <span class="highlight-metric">days_to_sold</span>, <span class="highlight-metric">item_rate_percent</span>.</p>
+                
+                <div class="code-block">
+                    <pre><code> <span class="highlight-metric">Фрагмент PySpark: агрегации и оконные функции</span>
 item_df = spark.read.parquet("s3a://startde-raw/raw_items")
 
 item_df = item_df.withColumn("returned_items_count",
@@ -106,51 +206,31 @@ item_df = item_df.withColumn("returned_items_count",
     .withColumn("avg_daily_sales", F.when(F.col("days_on_sell") > 0, F.col("goods_sold_count") / F.col("days_on_sell")).otherwise(0)) \
     .withColumn("days_to_sold", F.when(F.col("avg_daily_sales") > 0, F.col("availability_items_count") / F.col("avg_daily_sales")).otherwise(None))
 
-# percent_rank по рейтингу
+<span class="highlight-metric">percent_rank по рейтингу</span>
 from pyspark.sql import Window
 w = Window.orderBy("item_rate")
 item_df = item_df.withColumn("item_rate_percent", F.percent_rank().over(w))
 
 item_df.write.mode("overwrite").parquet(TARGET_PATH)</code></pre>
-            
-            <h4>📁 Файлы проекта</h4>
-            <div class="docs-grid">
-                <div class="doc-item">
-                    <span class="doc-icon">📄</span>
-                    <span class="doc-text"><a href="https://github.com/Vlasov-S-N-96/project/tree/main/startde-project" target="_blank"><strong>startde-project</strong> – корневая папка проекта</a></span>
                 </div>
-                <div class="doc-item">
-                    <span class="doc-icon">📄</span>
-                    <span class="doc-text"><a href="https://github.com/Vlasov-S-N-96/project/blob/main/startde-project/de-project/sergej-vlasov-tnb4478/items-spark-job.py" target="_blank"><strong>items-spark-job.py</strong> – основной Spark job</a></span>
-                </div>
-                <div class="doc-item">
-                    <span class="doc-icon">📄</span>
-                    <span class="doc-text"><a href="https://github.com/Vlasov-S-N-96/project/blob/main/de-project/sergej-vlasov-tnb4478/items_spark_submit.yaml" target="_blank"><strong>items_spark_submit.yaml</strong> – конфигурация Spark</a></span>
-                </div>
-                <div class="doc-item">
-                    <span class="doc-icon">📄</span>
-                    <span class="doc-text"><a href="https://github.com/Vlasov-S-N-96/project/blob/main/de-project/sergej-vlasov-tnb4478/startde-project-sergej-vlasov-tnb4478-dag.py" target="_blank"><strong>startde-project-sergej-vlasov-tnb4478-dag.py</strong> – DAG файл</a></span>
-                </div>
-            </div>
 
-            <h4>📸 Скриншоты расчётов</h4>
-            <div class="slider-container">
-                <button class="slider-btn prev" id="prevSparkBtn">❮</button>
-                <div class="slider-track" id="sparkSlider">
-                    <div class="slider-slide"><img src="https://raw.githubusercontent.com/Vlasov-S-N-96/project/main/py_spark_seller_items/py_spark_raw_items_1.jpg" alt="Скриншот 1"></div>
-                    <div class="slider-slide"><img src="https://raw.githubusercontent.com/Vlasov-S-N-96/project/main/py_spark_seller_items/py_spark_raw_items_2.jpg" alt="Скриншот 2"></div>
-                    <div class="slider-slide"><img src="https://raw.githubusercontent.com/Vlasov-S-N-96/project/main/py_spark_seller_items/py_spark_raw_items_3.jpg" alt="Скриншот 3"></div>
-                    <div class="slider-slide"><img src="https://raw.githubusercontent.com/Vlasov-S-N-96/project/main/py_spark_seller_items/py_spark_raw_items_4.jpg" alt="Скриншот 4"></div>
-                    <div class="slider-slide"><img src="https://raw.githubusercontent.com/Vlasov-S-N-96/project/main/py_spark_seller_items/py_spark_raw_items_5.jpg" alt="Скриншот 5"></div>
-                    <div class="slider-slide"><img src="https://raw.githubusercontent.com/Vlasov-S-N-96/project/main/py_spark_seller_items/py_spark_raw_items_6.jpg" alt="Скриншот 6"></div>
+                <div class="slider-container">
+                    <button class="slider-btn prev" id="prevSparkBtn">❮</button>
+                    <div class="slider-track" id="sparkSlider">
+                        <div class="slider-slide"><img src="https://raw.githubusercontent.com/Vlasov-S-N-96/project/main/py_spark_seller_items/py_spark_raw_items_1.jpg" alt="Скриншот 1"></div>
+                        <div class="slider-slide"><img src="https://raw.githubusercontent.com/Vlasov-S-N-96/project/main/py_spark_seller_items/py_spark_raw_items_2.jpg" alt="Скриншот 2"></div>
+                        <div class="slider-slide"><img src="https://raw.githubusercontent.com/Vlasov-S-N-96/project/main/py_spark_seller_items/py_spark_raw_items_3.jpg" alt="Скриншот 3"></div>
+                        <div class="slider-slide"><img src="https://raw.githubusercontent.com/Vlasov-S-N-96/project/main/py_spark_seller_items/py_spark_raw_items_4.jpg" alt="Скриншот 4"></div>
+                        <div class="slider-slide"><img src="https://raw.githubusercontent.com/Vlasov-S-N-96/project/main/py_spark_seller_items/py_spark_raw_items_5.jpg" alt="Скриншот 5"></div>
+                        <div class="slider-slide"><img src="https://raw.githubusercontent.com/Vlasov-S-N-96/project/main/py_spark_seller_items/py_spark_raw_items_6.jpg" alt="Скриншот 6"></div>
+                    </div>
+                    <button class="slider-btn next" id="nextSparkBtn">❯</button>
                 </div>
-                <button class="slider-btn next" id="nextSparkBtn">❯</button>
-            </div>
-            <div class="slider-dots" id="sparkDots"></div>
+                <div class="slider-dots" id="sparkDots"></div>
 
-            <details>
-                <summary>⚙️ Конфигурация SparkKubernetesOperator (YAML)</summary>
-                <pre><code>apiVersion: sparkoperator.k8s.io/v1beta2
+                <details class="details-block">
+                    <summary>Конфигурация SparkKubernetesOperator (YAML)</summary>
+                    <pre><code>apiVersion: sparkoperator.k8s.io/v1beta2
 kind: SparkApplication
 metadata:
   name: spark-job-sergej-vlasov-tnb4478-items
@@ -166,15 +246,16 @@ spec:
   executor:
     instances: 1
     memory: "2048m"</code></pre>
-            </details>
-        </section>
+                </details>
+            </section>
 
-        <!-- Секция Airflow DAG -->
-        <section id="airflow" class="section-card">
-            <h2>🌀 Разработка Airflow DAG</h2>
-            <pre><code>from airflow import DAG
+            <section id="airflow">
+                <h2 class="subheadings_info">Разработка Airflow DAG</h2>
+                <div class="code-block">
+                    <pre><code>from airflow import DAG
 from airflow.providers.cncf.kubernetes.operators.spark_kubernetes import SparkKubernetesOperator
 from airflow.providers.common.sql.operators.sql import SQLExecuteQueryOperator
+from airflow.providers.cncf.kubernetes.sensors.spark_kubernetes import SparkKubernetesSensor
 
 with DAG(dag_id="startde-project-sergej-vlasov-tnb4478-dag",
          schedule_interval=None, start_date=pendulum.datetime(2025,3,3)) as dag:
@@ -183,20 +264,19 @@ with DAG(dag_id="startde-project-sergej-vlasov-tnb4478-dag",
     sensor_task = SparkKubernetesSensor(task_id="job_sensor", application_name="{{ task_instance.xcom_pull(task_ids='job_submit')['metadata']['name'] }}")
     build_datamart = SQLExecuteQueryOperator(task_id="items_datamart", conn_id="greenplume_karpov", sql=items_datamart_query)
     
-    submit_task >> sensor_task >> build_datamart
-    build_datamart >> [item_brands_view, unreliable_sellers_view]</code></pre>
-            
-            <h4>Скриншот запуска DAG в Airflow</h4>
-            <div class="single-screenshot" data-src="https://raw.githubusercontent.com/Vlasov-S-N-96/project/main/Airflow/Final_project.jpg">
-                <img src="https://raw.githubusercontent.com/Vlasov-S-N-96/project/main/Airflow/Final_project.jpg" alt="DAG run">
-            </div>
-        </section>
+    submit_task >> sensor_task >> build_datamart</code></pre>
+                </div>
 
-        <!-- Секция SQL скрипты с правильным слайдером -->
-        <section id="sql" class="section-card">
-            <h2>🗄️ SQL-скрипты для витрины в Greenplum</h2>
-            <h4>Внешняя таблица seller_items (PXF)</h4>
-            <pre><code>CREATE EXTERNAL TABLE "sergej-vlasov-tnb4478".seller_items (
+                <div class="single-screenshot">
+                    <img src="https://raw.githubusercontent.com/Vlasov-S-N-96/project/main/Airflow/Final_project.jpg" alt="DAG run in Airflow">
+                </div>
+            </section>
+
+            <section id="sql">
+                <h2 class="subheadings_info">SQL-скрипты для витрины в Greenplum</h2>
+                <h3 class="subsection_title">Внешняя таблица seller_items (PXF)</h3>
+                <div class="code-block">
+                    <pre><code>CREATE EXTERNAL TABLE "sergej-vlasov-tnb4478".seller_items (
     sku_id BIGINT, title TEXT, category TEXT, brand TEXT, seller TEXT,
     group_type TEXT, country TEXT, availability_items_count BIGINT,
     ordered_items_count BIGINT, warehouses_count BIGINT, item_price BIGINT,
@@ -206,23 +286,23 @@ with DAG(dag_id="startde-project-sergej-vlasov-tnb4478-dag",
     days_to_sold FLOAT8, item_rate_percent FLOAT8
 ) LOCATION ('pxf://startde-project/sergej-vlasov-tnb4478/seller_items?PROFILE=s3:parquet&SERVER=default')
 ON ALL FORMAT 'CUSTOM' (FORMATTER='pxfwritable_import');</code></pre>
-            
-            <h4>📸 Просмотр созданных таблиц и представлений</h4>
-            <div class="slider-container">
-                <button class="slider-btn prev" id="prevSqlBtn">❮</button>
-                <div class="slider-track" id="sqlSlider">
-                    <div class="slider-slide"><img src="https://raw.githubusercontent.com/Vlasov-S-N-96/project/main/Greenplum%20PXF/seller_items_1.jpg" alt="seller_items_1"></div>
-                    <div class="slider-slide"><img src="https://raw.githubusercontent.com/Vlasov-S-N-96/project/main/Greenplum%20PXF/seller_items_2.jpg" alt="seller_items_2"></div>
-                    <div class="slider-slide"><img src="https://raw.githubusercontent.com/Vlasov-S-N-96/project/main/Greenplum%20PXF/create_unreliable_sellers_report_view.jpg" alt="unreliable view"></div>
-                    <div class="slider-slide"><img src="https://raw.githubusercontent.com/Vlasov-S-N-96/project/main/Greenplum%20PXF/create_brands_report_view.jpg" alt="brands view"></div>
                 </div>
-                <button class="slider-btn next" id="nextSqlBtn">❯</button>
-            </div>
-            <div class="slider-dots" id="sqlDots"></div>
 
-            <details>
-                <summary>📄 Показать SQL код представлений</summary>
-                <pre><code>-- VIEW: unreliable_sellers_view
+                <div class="slider-container">
+                    <button class="slider-btn prev" id="prevSqlBtn">❮</button>
+                    <div class="slider-track" id="sqlSlider">
+                        <div class="slider-slide"><img src="https://raw.githubusercontent.com/Vlasov-S-N-96/project/main/Greenplum%20PXF/seller_items_1.jpg" alt="seller_items_1"></div>
+                        <div class="slider-slide"><img src="https://raw.githubusercontent.com/Vlasov-S-N-96/project/main/Greenplum%20PXF/seller_items_2.jpg" alt="seller_items_2"></div>
+                        <div class="slider-slide"><img src="https://raw.githubusercontent.com/Vlasov-S-N-96/project/main/Greenplum%20PXF/create_unreliable_sellers_report_view.jpg" alt="unreliable view"></div>
+                        <div class="slider-slide"><img src="https://raw.githubusercontent.com/Vlasov-S-N-96/project/main/Greenplum%20PXF/create_brands_report_view.jpg" alt="brands view"></div>
+                    </div>
+                    <button class="slider-btn next" id="nextSqlBtn">❯</button>
+                </div>
+                <div class="slider-dots" id="sqlDots"></div>
+
+                <details class="details-block">
+                    <summary>Показать SQL код представлений</summary>
+                    <pre><code> <span class="highlight-metric">VIEW: unreliable_sellers_view</span>
 CREATE VIEW "sergej-vlasov-tnb4478".unreliable_sellers_view AS
 SELECT total.seller, total.availability_items_count AS total_overload_items_count,
        total.availability_items_count > total.ordered_items_count AS is_unreliable
@@ -231,7 +311,7 @@ FROM ( SELECT s.seller, SUM(s.availability_items_count) AS availability_items_co
        FROM "sergej-vlasov-tnb4478".seller_items s WHERE s.days_on_sell > 100
        GROUP BY s.seller ) AS total;
 
--- VIEW: item_brands_view
+<span class="highlight-metric">VIEW: item_brands_view</span>
 CREATE VIEW "sergej-vlasov-tnb4478".item_brands_view AS
 SELECT brand, group_type, country,
        sum(potential_revenue) as potential_revenue,
@@ -239,34 +319,95 @@ SELECT brand, group_type, country,
        count(sku_id) as items_count
 FROM "sergej-vlasov-tnb4478".seller_items
 GROUP BY brand, group_type, country;</code></pre>
-            </details>
-        </section>
+                </details>
+            </section>
 
-        <section id="results" class="section-card">
-            <h2>📈 Результат</h2>
-            <p>В результате выполнения проекта создана витрина данных в <strong>Greenplum</strong>, содержащая агрегированные метрики по товарам, брендам, категориям. Аналитики могут использовать витрину для построения дашбордов и принятия решений на основе данных о продажах, возвратах, потенциале выручки и надежности продавцов.</p>
-            <hr>
-            <div class="doc-item">
-                <span class="doc-icon">📚</span>
-                <span class="doc-text">
-                    <strong>Техническая документация:</strong> 
-                    <a href="https://airflow.apache.org/docs/apache-airflow-providers-cncf-kubernetes/stable/operators.html#airflow-providers-cncf-kubernetes-operators-sparkkubernetes" target="_blank">SparkKubernetesOperator</a> &nbsp;|&nbsp;
-                    <a href="https://airflow.apache.org/docs/apache-airflow-providers-cncf-kubernetes/stable/sensors.html" target="_blank">SparkKubernetesSensor</a> &nbsp;|&nbsp;
-                    <a href="https://airflow.apache.org/docs/apache-airflow-providers-common-sql/stable/operators.html" target="_blank">SQLExecuteQueryOperator</a>
-                </span>
+            <section id="results">
+                <h2 class="subheadings_info">Результат</h2>
+                <p>В результате выполнения проекта создана витрина данных в <strong>Greenplum</strong>, содержащая агрегированные метрики по товарам, брендам, категориям. Аналитики могут использовать витрину для построения дашбордов и принятия решений на основе данных о продажах, возвратах, потенциале выручки и надежности продавцов.</p>
+                <hr class="result-divider">
+                <div class="info-card">
+                    <span class="info-icon"></span>
+                    <span class="info-text">
+                        <strong>Техническая документация:</strong> 
+                        <a href="https://airflow.apache.org/docs/apache-airflow-providers-cncf-kubernetes/stable/operators.html#airflow-providers-cncf-kubernetes-operators-sparkkubernetes" target="_blank">SparkKubernetesOperator</a> &nbsp;|&nbsp;
+                        <a href="https://airflow.apache.org/docs/apache-airflow-providers-cncf-kubernetes/stable/sensors.html" target="_blank">SparkKubernetesSensor</a> &nbsp;|&nbsp;
+                        <a href="https://airflow.apache.org/docs/apache-airflow-providers-common-sql/stable/operators.html" target="_blank">SQLExecuteQueryOperator</a>
+                    </span>
+                </div>
+            </section>
+        </main>
+
+        <!-- ПОДВАЛ -->
+        <footer id="footer" class="footer">
+            <div class="footer-container">
+                <!-- ЗАГОЛОВОК КОНТАКТЫ СВЕРХУ -->
+                <div class="footer-title">
+                    <span></span> Контакты
+                </div>
+
+                <!-- ДВЕ КОЛОНКИ НА ОДНОМ УРОВНЕ -->
+                <div class="footer-row">
+                    <!-- ЛЕВАЯ КОЛОНКА -->
+                    <div class="footer-contacts">
+                        <a href="mailto:nikolaevch96@yandex.ru" class="footer-contact-link">
+                            <div class="contact-icon email-icon">
+                                <svg width="18" height="18" viewBox="0 0 40 40" fill="none">
+                                    <rect x="4" y="10" width="32" height="20" rx="2" fill="white"/>
+                                    <path d="M8 14L20 22L32 14" stroke="#09a0ab" stroke-width="1.5" fill="none"/>
+                                    <line x1="12" y1="17" x2="20" y2="21" stroke="#09a0ab" stroke-width="1.5"/>
+                                    <line x1="28" y1="17" x2="20" y2="21" stroke="#09a0ab" stroke-width="1.5"/>
+                                </svg>
+                            </div>
+                            <span>mail</span>
+                        </a>
+                        <a href="https://t.me/Vlasov_S_Nid96271" target="_blank" class="footer-contact-link">
+                            <div class="contact-icon telegram-icon">
+                                <svg width="18" height="18" viewBox="0 0 40 40" fill="none">
+                                    <circle cx="20" cy="20" r="20" fill="white"/>
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M20 0C8.9543 0 0 8.9543 0 20C0 31.0457 8.9543 40 20 40C31.0457 40 40 31.0457 40 20C40 8.9543 31.0457 0 20 0ZM29.1027 13.1159C29.698 12.9413 30.3734 13.2618 30.4486 13.8695C30.5494 14.673 30.5399 15.7849 30.4199 16.9647C29.9592 21.1896 28.4903 28.7162 27.7739 31.6816C27.5078 32.8103 27.0048 33.1053 26.2089 32.659C25.2085 32.1004 24.2351 31.4272 23.2972 30.7507C22.3005 30.032 23.6662 30.6234 22.6356 29.8855C21.3361 28.9482 18.4606 26.8194 17.3062 25.6971C16.4912 24.9024 17.6314 24.2954 18.7371 23.2418C19.4903 22.518 22.515 19.7202 24.8274 17.3336C25.6113 16.5228 24.7864 17.158 23.8235 17.9603C22.2447 19.2427 19.6517 21.0568 18.5779 21.8393C17.7043 22.4729 17.0464 22.4718 16.385 21.9268C15.1905 20.9585 13.8561 20.0988 12.7392 19.3968C11.6009 18.6818 11.7538 17.6593 13.1012 17.0194C16.1588 15.5731 21.3414 13.6294 29.1027 13.1159Z" fill="#09a0ab"/>
+                                </svg>
+                            </div>
+                            <span>Telegram</span>
+                        </a>
+                        <a href="https://github.com/Vlasov-S-N-96" target="_blank" class="footer-contact-link">
+                            <div class="contact-icon github-icon">
+                                <svg width="18" height="18" viewBox="0 0 40 40" fill="none">
+                                    <circle cx="20" cy="20" r="20" fill="white"/>
+                                    <path d="M20 8C13.37 8 8 13.37 8 20C8 25.63 11.93 30.45 17.29 31.96C18.09 32.11 18.36 31.59 18.36 31.14C18.36 30.74 18.35 29.87 18.34 28.96C15.03 29.66 14.25 27.56 14.25 27.56C13.64 26.01 12.76 25.64 12.76 25.64C11.53 24.92 12.83 24.93 12.83 24.93C14.17 25.01 14.86 26.3 14.86 26.3C16.01 28.32 17.88 27.8 18.42 27.36C18.57 26.49 18.94 25.9 19.35 25.56C16.28 25.21 13.05 24.1 13.05 19.45C13.05 18.12 13.56 17.02 14.4 16.17C14.25 15.81 13.79 14.57 14.51 12.93C14.51 12.93 15.59 12.55 18.34 14.08C19.37 13.77 20.47 13.61 21.58 13.61C22.69 13.61 23.79 13.77 24.82 14.08C27.57 12.55 28.65 12.93 28.65 12.93C29.37 14.57 28.91 15.81 28.76 16.17C29.6 17.02 30.11 18.12 30.11 19.45C30.11 24.11 26.87 25.2 23.79 25.55C24.3 25.99 24.76 26.85 24.76 28.18C24.76 30.07 24.74 31.59 24.74 31.14C24.74 31.6 25.01 32.12 25.83 31.96C31.17 30.44 35.08 25.63 35.08 20C35.08 13.37 29.71 8 23.08 8H20Z" fill="#09a0ab"/>
+                                </svg>
+                            </div>
+                            <span>GitHub</span>
+                        </a>
+                    </div>
+
+                    <!-- ПРАВАЯ КОЛОНКА -->
+                    <div class="footer-right">
+                        <div class="footer-location">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+                                <circle cx="12" cy="9" r="2.5" fill="white" stroke="none"/>
+                            </svg>
+                            <span>Воронеж / Удалённо</span>
+                        </div>
+                        <div class="footer-status">
+                            <span class="status-dot"></span>
+                            <span>Открыт к предложениям</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- РАЗДЕЛИТЕЛЬ -->
+                <div class="footer-divider"></div>
+                
+                <!-- КОПИРАЙТ -->
+                <div class="footer-copyright">
+                    <p>© 2026 Власов Сергей — QA Engineer / Тестировщик ПО</p>
+                </div>
             </div>
-        </section>
-    </main>
+        </footer>
+    </div>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-info">🚀 Проект «Витрина данных для аналитиков» | Автор: Власов Сергей</div>
-            <div class="footer-contacts">📧 Email: <a href="mailto:nikolaevch96@yandex.ru">nikolaevch96@yandex.ru</a> &nbsp;|&nbsp; 💬 Telegram: <a href="https://t.me/Vlasov_S_Nid96271" target="_blank">@Vlasov_S_Nid96271</a> &nbsp;|&nbsp; 🐙 GitHub: <a href="https://github.com/Vlasov-S-N-96/" target="_blank">Vlasov-S-N-96</a></div>
-            <div class="footer-copyright">© 2026 Все права защищены</div>
-        </div>
-    </footer>
-</div>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
