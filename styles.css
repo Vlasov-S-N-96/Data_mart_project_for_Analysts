@@ -20,56 +20,29 @@
 .header-container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     background: white;
     padding: 25px 40px;
     border-radius: 24px 24px 0 0;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    gap: 40px;
+    position: relative;
 }
 
 .photo-block {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    flex-shrink: 0;
-}
-
-.avatar {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 3px solid #e2eaf1;
-    transition: transform 0.2s;
-}
-
-.avatar:hover {
-    transform: scale(1.05);
-}
-
-.name {
-    font-size: 20px;
-    font-weight: bold;
-    color: #1e4663;
+    display: none;
 }
 
 .title-block {
-    flex: 1;
+    text-align: center;
 }
 
 .title-block h1 {
-    font-size: 32px;
+    font-size: 36px;
     color: #1e4663;
     margin: 0;
     font-weight: 700;
-    border-left: 4px solid #1e4663;
-    padding-left: 20px;
-    background: linear-gradient(135deg, #1e4663, #1f6392);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
+    border-left: none;
+    padding-left: 0;
 }
 
 .divider {
@@ -119,43 +92,133 @@
     border-color: #1e4663;
 }
 
-.nav-btn:active {
-    transform: translateY(0);
-    background: #0f3348;
-    color: white;
-    border-color: #0f3348;
-}
-
 .nav-btn.active {
     background: #1e4663;
     color: white;
     border-color: #1e4663;
 }
 
+/* ===== БУРГЕР-МЕНЮ ===== */
+.burger-menu {
+    display: none;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.burger-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    width: 44px;
+    height: 44px;
+    transition: all 0.3s ease;
+}
+
+.burger-btn span {
+    display: block;
+    width: 32px;
+    height: 5px;
+    background-color: #1e4663;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.burger-btn:hover span {
+    background-color: #09a0ab;
+}
+
+.burger-btn.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.burger-btn.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-btn.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(8px, -8px);
+}
+
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+}
+
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 80%;
+    max-width: 350px;
+    height: 100vh;
+    background: white;
+    z-index: 1000;
+    transition: left 0.3s ease;
+    padding: 90px 20px 30px;
+    overflow-y: auto;
+    box-shadow: 2px 0 25px rgba(0, 0, 0, 0.15);
+}
+
+.mobile-nav.active {
+    left: 0;
+}
+
+.menu-overlay.active {
+    display: block;
+}
+
+.mobile-nav .nav-btn {
+    display: flex;
+    margin-bottom: 14px;
+    width: 100%;
+    justify-content: center;
+    white-space: normal;
+    font-size: 14px;
+}
+
 /* ===== ОСНОВНОЙ КОНТЕНТ ===== */
 .content_section {
     background: white;
-    border-radius: 0;
+    border-radius: 0 0 24px 24px;
     padding: 30px 40px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Убираем вложенные секции - делаем всё в одном потоке */
+section {
+    margin-bottom: 40px;
+}
+
+section:last-child {
+    margin-bottom: 0;
 }
 
 .subheadings_info {
     font-weight: 700;
     font-size: 28px;
-    margin-top: 30px;
-    margin-bottom: 16px;
+    margin-top: 0;
+    margin-bottom: 20px;
     color: #1e4663;
     border-bottom: 3px solid #e3f0f5;
-    padding-bottom: 8px;
+    padding-bottom: 12px;
     display: inline-block;
 }
 
-.subheadings_info:first-of-type {
-    margin-top: 0;
-}
-
-/* ===== КАРТОЧКИ И БЛОКИ ===== */
+/* ===== КАРТОЧКИ ===== */
 .info-card {
     background: #f8fbfe;
     border-left: 4px solid #1f6392;
@@ -167,30 +230,25 @@
     gap: 12px;
 }
 
-.info-icon {
-    font-size: 28px;
-}
-
 .info-text {
     font-size: 15px;
     line-height: 1.5;
     color: #2c3e50;
 }
 
-/* ===== ЭТАПЫ (АККОРДЕОН) ===== */
+/* ===== АККОРДЕОН ===== */
 .stage-group {
     margin-bottom: 16px;
     border: 1px solid #e0e8f0;
     border-radius: 16px;
     overflow: hidden;
     background: white;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .stage-header {
     display: flex;
     align-items: center;
-    gap: 12px;
+    justify-content: space-between;
     padding: 16px 20px;
     background: #f8fafd;
     cursor: pointer;
@@ -201,18 +259,11 @@
     background: #f0f4f9;
 }
 
-.stage-icon {
-    font-size: 24px;
-    min-width: 32px;
-    text-align: center;
-}
-
 .stage-header h3 {
     font-size: 18px;
     font-weight: 600;
     color: #1e4663;
     margin: 0;
-    flex: 1;
 }
 
 .toggle-btn {
@@ -227,62 +278,25 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.2s;
-}
-
-.toggle-btn:hover {
-    background: #e0e8f0;
-}
-
-.stage-group.collapsed .toggle-btn {
-    transform: rotate(-90deg);
+    transition: transform 0.2s;
 }
 
 .stage-content {
+    display: none;
     padding: 20px;
     border-top: 1px solid #e0e8f0;
 }
 
-.stage-group.collapsed .stage-content {
-    display: none;
+.stage-group.open .stage-content {
+    display: block;
 }
 
-/* Стили для контента внутри аккордеона */
-.stage-content .docs-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+.stage-group.open .toggle-btn {
+    transform: rotate(180deg);
 }
 
-.stage-content .doc-item {
-    background: #f8fafd;
-    border-radius: 12px;
-    padding: 12px 16px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    border: 1px solid #e0e8f0;
-    text-decoration: none;
-}
-
-.stage-content .doc-item:hover {
-    background: #f0f4f9;
-    border-color: #1f6392;
-}
-
-.stage-content .doc-text {
-    font-size: 14px;
-    color: #2c3e50;
-    line-height: 1.4;
-}
-
-.stage-content pre {
-    margin: 0;
-    border-radius: 12px;
-}
-
-.stage-content pre code {
-    padding: 16px 20px;
+.stage-group:not(.open) .toggle-btn {
+    transform: rotate(-90deg);
 }
 
 /* ===== СЕТКИ ДЛЯ ДОКУМЕНТОВ ===== */
@@ -314,7 +328,6 @@
     font-size: 24px;
     min-width: 32px;
     text-align: center;
-    flex-shrink: 0;
 }
 
 .doc-text {
@@ -323,13 +336,13 @@
     line-height: 1.4;
 }
 
-.doc-text a, .info-text a {
+.doc-text a {
     color: #1f6392;
     text-decoration: none;
     font-weight: 500;
 }
 
-.doc-text a:hover, .info-text a:hover {
+.doc-text a:hover {
     text-decoration: underline;
     color: #09a0ab;
 }
@@ -357,7 +370,6 @@
     background: linear-gradient(135deg, #1e4663, #1f6392);
     color: white;
     transform: translateY(-2px);
-    border-color: transparent;
 }
 
 /* ===== ТАБЛИЦЫ ===== */
@@ -395,10 +407,14 @@
 
 .data-table code {
     background: #f0f4f9;
-    padding: 2px 8px;
+    padding: 4px 10px;
     border-radius: 6px;
     font-size: 12px;
     color: #1f6392;
+    font-family: 'Fira Code', 'JetBrains Mono', monospace;
+    font-weight: 500;
+    display: inline-block;
+    white-space: nowrap;
 }
 
 /* ===== БЛОКИ КОДА ===== */
@@ -407,113 +423,57 @@
 }
 
 pre {
-    background: rgba(9, 160, 171, 0.15);
-    color: #2c3e50;
+    background: #2d2d3d;
+    color: #e4e4e7;
     padding: 0;
-    border-radius: 0 0 16px 16px;
+    border-radius: 16px;
     overflow: hidden;
     font-family: 'Fira Code', 'JetBrains Mono', 'Courier New', monospace;
     font-size: 14px;
     line-height: 1.6;
-    border: 1px solid rgba(9, 160, 171, 0.3);
-    border-top: none;
     margin: 0;
-    transition: all 0.3s ease;
-}
-
-pre:hover {
-    background: rgba(9, 160, 171, 0.25);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(9, 160, 171, 0.2);
+    border: 1px solid #3d3d4d;
 }
 
 pre code {
     display: block;
-    padding: 20px 24px;
-    background: transparent;
-    color: #1e4663;
+    padding: 24px 28px;
+    overflow-x: auto;
+    background: #2d2d3d;
+    color: #e4e4e7;
     font-family: 'Fira Code', 'JetBrains Mono', monospace;
     font-size: 13.5px;
-    line-height: 1.6;
-    overflow-x: auto;
-    white-space: pre-wrap;
-    word-break: break-word;
+    line-height: 1.7;
 }
 
-/* Хедер для блоков кода */
-.code-header {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 10px 20px;
-    background: rgba(9, 160, 171, 0.15);
-    border-bottom: 1px solid rgba(9, 160, 171, 0.2);
-    font-size: 12px;
-    font-weight: 500;
-    border-radius: 16px 16px 0 0;
-    transition: all 0.3s ease;
-}
-
-.code-header:hover {
-    background: rgba(9, 160, 171, 0.25);
-}
-
-/* Кнопка копирования */
-.copy-btn {
-    background: rgba(9, 160, 171, 0.2);
-    border: 1px solid rgba(9, 160, 171, 0.4);
-    color: #1e4663;
-    padding: 6px 14px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 12px;
-    font-family: inherit;
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
-
-.copy-btn:hover {
-    background: #09a0ab;
-    border-color: #09a0ab;
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 2px 8px rgba(9, 160, 171, 0.3);
-}
-
-.copy-btn:active {
-    transform: translateY(0);
-}
-
-.copy-btn.copied {
-    background: #16d6ad;
-    border-color: #16d6ad;
-    color: white;
-    transform: scale(0.98);
-}
-
-/* Обертка для кода */
-.code-wrapper {
-    margin: 20px 0;
-    border-radius: 16px;
-    overflow: hidden;
-    transition: all 0.3s ease;
-}
-
-.code-wrapper:hover {
-    transform: translateY(-2px);
-}
-
-.code-wrapper:hover pre {
-    box-shadow: 0 6px 16px rgba(9, 160, 171, 0.15);
-}
-
-/* метрики */
 .highlight-metric {
-    background: #e8f0f5;
-    color: #1e4663;
+    background: #f0f4f9;
+    color: #1f6392;
     font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-family: 'Fira Code', 'JetBrains Mono', monospace;
+    font-size: 13px;
+    display: inline-block;
+    margin: 2px 0;
+}
+
+code {
+    background: #f0f4f9;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #1f6392;
+    font-family: 'Fira Code', 'JetBrains Mono', monospace;
+    font-weight: 500;
+}
+
+.doc-text code {
+    background: #f0f4f9;
     padding: 2px 8px;
     border-radius: 6px;
+    font-size: 12px;
+    color: #1f6392;
     font-family: monospace;
 }
 
@@ -533,13 +493,6 @@ pre code {
     padding: 14px 20px;
     background: #f0f4f9;
     list-style: none;
-    transition: background 0.2s;
-    border-radius: 0;
-}
-
-.details-block summary:hover {
-    background: #e8eef4;
-    color: #1f6392;
 }
 
 .details-block summary::-webkit-details-marker {
@@ -562,8 +515,6 @@ pre code {
 .details-block pre {
     margin: 0;
     border-radius: 0;
-    border: none;
-    border-top: 1px solid #e0e8f0;
 }
 
 /* ===== СЛАЙДЕР ===== */
@@ -587,7 +538,6 @@ pre code {
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
 }
 
 .slider-slide img {
@@ -611,12 +561,10 @@ pre code {
     padding: 12px 18px;
     border-radius: 50%;
     z-index: 10;
-    transition: all 0.2s;
 }
 
 .slider-btn:hover {
     background: #1e4663;
-    transform: translateY(-50%) scale(1.05);
 }
 
 .slider-btn.prev {
@@ -640,7 +588,6 @@ pre code {
     border-radius: 50%;
     background: #d0dce8;
     cursor: pointer;
-    transition: all 0.2s;
 }
 
 .dot.active {
@@ -648,14 +595,9 @@ pre code {
     transform: scale(1.2);
 }
 
-.dot:hover {
-    background: #1e4663;
-}
-
 .single-screenshot {
     margin: 20px 0;
     text-align: center;
-    cursor: pointer;
 }
 
 .single-screenshot img {
@@ -664,11 +606,6 @@ pre code {
     object-fit: contain;
     border-radius: 16px;
     border: 1px solid #e0e8f0;
-    transition: transform 0.2s;
-}
-
-.single-screenshot img:hover {
-    transform: scale(1.02);
 }
 
 .subsection_title {
@@ -685,88 +622,12 @@ pre code {
     background: linear-gradient(90deg, #1f6392, #16d6ad, transparent);
 }
 
-/* ===== БУРГЕР-МЕНЮ ===== */
-.burger-menu {
-    display: none;
-    position: relative;
-}
-
-.burger-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    width: auto;
-    height: 50px;
-    padding: 0 25px;
-    background: #1e4663;
-    color: white;
-    border: none;
-    font-size: 16px;
-    font-weight: 600;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-family: inherit;
-}
-
-.burger-btn:hover {
-    background: #0f3348;
-    transform: translateY(-2px);
-}
-
-.burger-btn:active {
-    transform: translateY(0);
-}
-
-.mobile-nav {
-    position: fixed;
-    top: 0;
-    left: -100%;
-    width: 80%;
-    max-width: 350px;
-    height: 100vh;
-    background: white;
-    box-shadow: 2px 0 25px rgba(0, 0, 0, 0.15);
-    z-index: 1000;
-    transition: left 0.3s ease;
-    padding: 90px 20px 30px;
-    overflow-y: auto;
-}
-
-.mobile-nav.active {
-    left: 0;
-}
-
-.menu-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 999;
-    display: none;
-}
-
-.menu-overlay.active {
-    display: block;
-}
-
-.mobile-nav .nav-btn {
-    display: flex;
-    margin-bottom: 14px;
-    width: 100%;
-    justify-content: center;
-    white-space: normal;
-    font-size: 14px;
-}
-
 /* ===== FOOTER ===== */
 .footer {
     background: #107980;
     padding: 35px 40px;
     color: white;
+    border-radius: 0 0 24px 24px;
 }
 
 .footer-container {
@@ -780,7 +641,6 @@ pre code {
     margin-bottom: 25px;
     padding-bottom: 10px;
     border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-    width: 100%;
 }
 
 .footer-row {
@@ -811,7 +671,7 @@ pre code {
 }
 
 .footer-contact-link:hover {
-    background: rgba(255, 255, 255, 0.18);
+    background: #1e4663;
     transform: translateX(5px);
 }
 
@@ -845,6 +705,12 @@ pre code {
     border-radius: 50px;
     font-size: 13px;
     font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.footer-location:hover, .footer-status:hover {
+    background: #1e4663;
+    transform: translateX(5px);
 }
 
 .status-dot {
@@ -894,22 +760,14 @@ pre code {
     .nav-buttons {
         display: none;
     }
-    
     .burger-menu {
         display: block;
     }
-    
     .header-container {
-        flex-wrap: wrap;
-        gap: 20px;
+        padding: 18px 20px;
     }
-    
-    .title-block {
-        order: 2;
-    }
-    
-    .burger-menu {
-        order: 3;
+    .title-block h1 {
+        font-size: 24px;
     }
 }
 
@@ -917,194 +775,98 @@ pre code {
     body.body_style {
         padding: 20px 12px;
     }
-    
-    .header-container {
-        padding: 18px 20px;
-    }
-    
-    .avatar {
-        width: 65px;
-        height: 65px;
-    }
-    
-    .name {
-        font-size: 14px;
-    }
-    
-    .title-block h1 {
-        font-size: 22px;
-        padding-left: 12px;
-    }
-    
     .content_section {
-        padding: 20px 18px;
+        padding: 20px;
     }
-    
     .subheadings_info {
-        font-size: 22px;
-    }
-    
-    .burger-btn {
-        padding: 8px 18px;
-        font-size: 14px;
-        height: 42px;
-    }
-    
-    .slider-slide img {
-        height: 280px;
-    }
-    
-    .slider-btn {
         font-size: 20px;
-        padding: 8px 12px;
     }
-    
+    .burger-menu {
+        right: 15px;
+    }
+    .burger-btn {
+        width: 38px;
+        height: 38px;
+        gap: 6px;
+    }
+    .burger-btn span {
+        width: 26px;
+        height: 4px;
+    }
+    .slider-slide img {
+        height: 250px;
+    }
     .footer {
-        padding: 20px 20px;
-        text-align: center;
+        padding: 20px;
     }
-    
     .footer-row {
         flex-direction: column;
         align-items: center;
-        gap: 25px;
+        gap: 20px;
     }
-    
     .footer-contacts {
         align-items: center;
         width: 100%;
     }
-    
     .footer-contact-link {
         width: 100%;
         justify-content: center;
-        padding: 8px 16px;
     }
-    
-    .footer-contact-link span {
-        font-size: 12px;
-    }
-    
     .footer-right {
         align-items: center;
         width: 100%;
     }
-    
     .footer-location, .footer-status {
         width: 100%;
         justify-content: center;
-        padding: 8px 16px;
-        font-size: 12px;
     }
-    
-    .footer-title {
-        text-align: center;
+    .stage-header {
+        padding: 12px 16px;
+    }
+    .stage-header h3 {
         font-size: 15px;
-        margin-bottom: 20px;
     }
-    
-    .footer-copyright p {
-        font-size: 11px;
+    .stage-content {
+        padding: 12px;
     }
-    
     pre code {
         padding: 16px;
         font-size: 12px;
     }
-    
-    .code-header {
-        padding: 6px 12px;
-    }
-    
-    .copy-btn {
-        padding: 4px 10px;
-        font-size: 11px;
-    }
-    
-    /* Аккордеон на мобильных */
-    .stage-header {
-        padding: 12px 16px;
-        gap: 10px;
-    }
-    
-    .stage-icon {
-        font-size: 20px;
-        min-width: 28px;
-    }
-    
-    .stage-header h3 {
-        font-size: 15px;
-    }
-    
-    .toggle-btn {
-        width: 28px;
-        height: 28px;
-        font-size: 14px;
-    }
-    
-    .stage-content {
-        padding: 12px;
-    }
-    
-    .stage-content .doc-item {
-        padding: 10px 12px;
-    }
-    
-    .stage-content .doc-text {
-        font-size: 12px;
-    }
-    
-    .tech-badge {
-        font-size: 11px;
-        padding: 5px 12px;
-    }
 }
 
 @media screen and (max-width: 480px) {
-    .slider-slide img {
-        height: 200px;
+    .title-block h1 {
+        font-size: 18px;
     }
-    
+    .burger-menu {
+        right: 12px;
+    }
+    .burger-btn {
+        width: 34px;
+        height: 34px;
+        gap: 5px;
+    }
+    .burger-btn span {
+        width: 22px;
+        height: 3.5px;
+    }
     .subheadings_info {
         font-size: 18px;
     }
-    
-    .tech-badge {
-        font-size: 10px;
-        padding: 4px 10px;
+    .slider-slide img {
+        height: 180px;
     }
-    
-    .doc-item {
-        padding: 10px 14px;
-    }
-    
-    .doc-icon {
-        font-size: 20px;
-    }
-    
-    .doc-text {
-        font-size: 12px;
-    }
-    
-    .stage-header {
-        padding: 10px 12px;
-    }
-    
-    .stage-icon {
-        font-size: 18px;
-        min-width: 24px;
-    }
-    
-    .stage-header h3 {
-        font-size: 13px;
-    }
-    
-    .stage-content {
-        padding: 10px;
-    }
-    
     .contact-icon {
         width: 24px;
         height: 24px;
+    }
+    pre code {
+        padding: 12px;
+        font-size: 11px;
+    }
+    .highlight-metric {
+        padding: 2px 6px;
+        font-size: 11px;
     }
 }
