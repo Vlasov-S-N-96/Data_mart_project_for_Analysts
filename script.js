@@ -92,11 +92,17 @@
             group.classList.remove('open');
             
             const header = group.querySelector('.stage-header');
+            const btn = group.querySelector('.toggle-btn');
+            
+            function toggle(e) {
+                group.classList.toggle('open');
+            }
+            
             if (header) {
-                header.addEventListener('click', function() {
-                    // Переключаем класс open
-                    group.classList.toggle('open');
-                });
+                header.addEventListener('click', toggle);
+            }
+            if (btn) {
+                btn.addEventListener('click', (e) => e.stopPropagation());
             }
         });
     }
@@ -142,26 +148,27 @@
             }
         }
         
-        prevBtn?.addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-            updateSlider();
-        });
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                updateSlider();
+            });
+        }
         
-        nextBtn?.addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % totalSlides;
-            updateSlider();
-        });
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % totalSlides;
+                updateSlider();
+            });
+        }
         
         createDots();
     }
     
-    document.readyState === 'loading' 
-        ? document.addEventListener('DOMContentLoaded', () => {
-            initSlider('sparkSlider', 'prevSparkBtn', 'nextSparkBtn', 'sparkDots');
-            initSlider('sqlSlider', 'prevSqlBtn', 'nextSqlBtn', 'sqlDots');
-        })
-        : (() => {
-            initSlider('sparkSlider', 'prevSparkBtn', 'nextSparkBtn', 'sparkDots');
-            initSlider('sqlSlider', 'prevSqlBtn', 'nextSqlBtn', 'sqlDots');
-        })();
+    function initAllSliders() {
+        initSlider('sparkSlider', 'prevSparkBtn', 'nextSparkBtn', 'sparkDots');
+        initSlider('sqlSlider', 'prevSqlBtn', 'nextSqlBtn', 'sqlDots');
+    }
+    
+    document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', initAllSliders) : initAllSliders();
 })();
