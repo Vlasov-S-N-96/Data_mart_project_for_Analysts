@@ -34,6 +34,7 @@
 
 .title-block {
     text-align: center;
+    max-width: 100%;
 }
 
 .title-block h1 {
@@ -43,6 +44,7 @@
     font-weight: 700;
     border-left: none;
     padding-left: 0;
+    white-space: nowrap;
 }
 
 .divider {
@@ -198,7 +200,6 @@
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
-/* Убираем вложенные секции - делаем всё в одном потоке */
 section {
     margin-bottom: 40px;
 }
@@ -477,7 +478,6 @@ code {
     font-family: monospace;
 }
 
-/* Детали блоков */
 .details-block {
     margin: 20px 0;
     background: #f8fafd;
@@ -768,6 +768,7 @@ code {
     }
     .title-block h1 {
         font-size: 24px;
+        white-space: nowrap;
     }
 }
 
@@ -792,6 +793,10 @@ code {
     .burger-btn span {
         width: 26px;
         height: 4px;
+    }
+    .title-block h1 {
+        font-size: 22px;
+        white-space: nowrap;
     }
     .slider-slide img {
         height: 250px;
@@ -835,9 +840,26 @@ code {
     }
 }
 
+/* Уменьшение заголовка в промежутке 370-432px */
+@media screen and (min-width: 370px) and (max-width: 432px) {
+    .title-block h1 {
+        font-size: 14px !important;
+        white-space: nowrap;
+    }
+}
+
+/* Уменьшение заголовка в промежутке 480-504px */
+@media screen and (min-width: 480px) and (max-width: 504px) {
+    .title-block h1 {
+        font-size: 18px !important;
+        white-space: nowrap;
+    }
+}
+
 @media screen and (max-width: 480px) {
     .title-block h1 {
-        font-size: 18px;
+        font-size: 16px;
+        white-space: nowrap;
     }
     .burger-menu {
         right: 12px;
